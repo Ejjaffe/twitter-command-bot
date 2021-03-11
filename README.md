@@ -6,6 +6,14 @@ Code relating to my twitter bot, which can be found [here](https://twitter.com/W
 Get your [Twitter api tokens](https://developer.twitter.com/en/support/twitter-api).
 ### Config File
 Create a copy of `configs/template.ini` as `configs/config.ini` and store your credentials in it.
+### Conda Env
+In the root directory of the project, create your conda env with `conda env create -f twitterbot.yml`.
+
+### Running The Code
+```bash
+conda activate twitterbot
+python client.py --config configs/config.ini
+```
 
 ## Development
 ### The Command Class
