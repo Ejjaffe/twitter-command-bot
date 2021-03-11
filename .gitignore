@@ -4,3 +4,4 @@ configs/keys.txt
 data/*
 src/__pycache__/*
 images/*
+.vscode/*

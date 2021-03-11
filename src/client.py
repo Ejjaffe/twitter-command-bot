@@ -1,5 +1,8 @@
 """
 Run me!
+(from root directory)
+conda activate twitterbot
+python src\client.py --config configs\config.ini
 """
 import argparse
 import configparser
