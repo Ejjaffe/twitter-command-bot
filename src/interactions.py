@@ -52,8 +52,8 @@ class CommandManager(object):
 
 
 class MentionsLogger(object):
-    def __init__(self, logger_fpath):
-        self.fpath = logger_fpath
+    def __init__(self, fpath):
+        self.fpath = fpath
         self.built = os.path.exists(self.fpath)
     
     def _tweet_2_flat_dict(self, tweet):
@@ -71,8 +71,11 @@ class MentionsLogger(object):
 
     def log(self, tweet):
         flat_tweet = self._tweet_2_flat_dict(tweet)
+        print('logger_logging',flat_tweet)
         if self.built:
+            print('built')
             self._append(flat_tweet)
         else:
+            print('first write')
             self._first_write(flat_tweet)
 

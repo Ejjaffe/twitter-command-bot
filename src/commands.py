@@ -19,6 +19,6 @@ class Help(Command):
     def reply_tweet(self):
         message = f"I don't recognize that command. See my pinned tweet for help. ({datetime.now()})"
         try:
-            self.api.PostUpdate(status=message, in_reply_to_status_id=self.tweet_id)
+            self.api.PostUpdate(status=message, in_reply_to_status_id=self.tweet_id, auto_populate_reply_metadata=True)
         except TwitterError as e:
             print(e)
