@@ -2,6 +2,8 @@
 Code relating to my twitter bot, which can be found [here](https://twitter.com/WhatDoITweetBot). (The bot and the template are both WIP.)
 
 ## Setup
+### Fork it!
+Fork it.
 ### API Tokens
 Get your [Twitter api tokens](https://developer.twitter.com/en/support/twitter-api).
 ### Config File
