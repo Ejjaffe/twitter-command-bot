@@ -54,7 +54,7 @@ class CommandManager(object):
 class MentionsLogger(object):
     def __init__(self, fpath):
         self.fpath = fpath
-        self.built = os.path.exists(self.fpath)
+        self.built = os.path.isfile(self.fpath)
     
     def _tweet_2_flat_dict(self, tweet):
         return flatten(tweet.AsDict())
@@ -66,16 +66,14 @@ class MentionsLogger(object):
 
     def _append(self, flat_tweet):
         df = pd.read_csv(self.fpath, index_col=0)
-        df.append(flat_tweet, ignore_index=True)
+        print(df)
+        df = df.append(flat_tweet, ignore_index=True)
         df.to_csv(self.fpath)
 
     def log(self, tweet):
         flat_tweet = self._tweet_2_flat_dict(tweet)
-        print('logger_logging',flat_tweet)
         if self.built:
-            print('built')
             self._append(flat_tweet)
         else:
-            print('first write')
             self._first_write(flat_tweet)
 

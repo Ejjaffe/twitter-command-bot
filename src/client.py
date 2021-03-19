@@ -6,10 +6,12 @@ python src\client.py --config configs\config.ini
 """
 import argparse
 import configparser
+from datetime import timedelta
 
 from triggers import MentionsListener
 from interactions import CommandManager, MentionsLogger
 import commands
+import utils
 
 import twitter
 
@@ -44,9 +46,8 @@ if __name__ == '__main__':
     mentions_listener = MentionsListener(api, paths['Latest_Mentions_ID'])
     mentions_logger = MentionsLogger(paths['Mentions_Log'])
 
-    print(dict(keys))
-    print(dict(paths))
-    #print(api.GetFriends())
+    assert utils.api_cert_validate(api)
+    print("Credentials Valid! Starting up...")
 
     for mention in mentions_listener.listen(verbose=True):
         mentions_logger.log(mention)
